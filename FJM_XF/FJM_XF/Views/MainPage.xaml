@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="FJM_XF.Views.MainPage">
+  <!--xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:viewModels="clr-namespace:FJM_XF.ViewModels;assembly=FJM_XF"
+             mc:Ignorable="d"
+             d:DataContext="{d:DesignInstance Type=viewModels:MainPageViewModel, IsDesignTimeCreatable=False}">-->
+
+  <!--xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:viewModels="clr-namespace:FJM_XF.ViewModels;assembly=FJM_XF"
+             mc:Ignorable="d"
+             d:DataContext="{d:DesignInstance Type=viewModels:MainPageViewModel, IsDesignTimeCreatable=False}">
+                          DataContext="{StaticResource ViewModels.MainPageViewModel}"-->
+
+  <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+    <Label Text="{Binding Title}"></Label>
+    <Switch IsToggled="{Binding IsActive}" />
+    <Button Text="Login" Command="{Binding NavigateCommand}" />
+  </StackLayout>
+
+</ContentPage>
