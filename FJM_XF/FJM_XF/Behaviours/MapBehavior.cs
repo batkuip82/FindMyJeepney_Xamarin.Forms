@@ -13,7 +13,8 @@ namespace FJM_XF.Behaviours
     public class MapBehavior : BehaviorBase<Map>
     {
         public static readonly BindableProperty ItemsSourceProperty =
-            BindableProperty.Create(nameof(ItemsSource), typeof(IEnumerable<ILocationViewModel>), typeof(MapBehavior), propertyChanged:ItemsSourceChanged);
+            BindableProperty.Create(nameof(ItemsSource), typeof(IEnumerable<ILocationViewModel>), typeof(MapBehavior), 
+                new List<LocationViewModel>(), propertyChanged:ItemsSourceChanged);
 
         public IEnumerable<ILocationViewModel> ItemsSource
         {

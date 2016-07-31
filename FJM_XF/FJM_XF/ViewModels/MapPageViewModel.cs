@@ -19,29 +19,27 @@ namespace FJM_XF.ViewModels
 
     public class MapPageViewModel : BindableBase
     {
-
         public DelegateCommand SearchChangedCommand { get; private set; }
 
         public DelegateCommand ItemTappedCommand { get; private set; }
 
-        private string _currentSearch = string.Empty;
+        private string _currentSearch = string.Empty; 
         public string CurrentSearch
         {
             get { return _currentSearch; }
             set
             {
-                SetProperty(ref _currentSearch, value);
+                SetProperty(ref _currentSearch, value); //try to set thirth param
             }
         }
 
-        private ObservableCollection<LocationViewModel> _locationItems;
-        public ObservableCollection<LocationViewModel> LocationItems
+        private List<LocationViewModel> _locationItems;
+        public List<LocationViewModel> LocationItems
         {
-            get { return _locationItems; }
+            get { return this._locationItems; }
             set
             {
-                SetProperty(ref _locationItems, value);
-                OnPropertyChanged();
+                SetProperty(ref this._locationItems, value);
             }
         }
 
@@ -88,9 +86,12 @@ namespace FJM_XF.ViewModels
         }
 
 
+
+
         public MapPageViewModel()
         {
-            _locationItems = new ObservableCollection<LocationViewModel>();
+            this.OnPropertyChanged(() => LocationItems);
+            _locationItems = new List<LocationViewModel>();
             _locationItems.Add(setDefaultLocation());
 
             _showMap = true;
@@ -113,6 +114,7 @@ namespace FJM_XF.ViewModels
             };
 
             _locationItems.Add(location);
+            OnPropertyChanged(() => this.LocationItems);
             CurrentSearch = AddressSelected;
         }
 
@@ -136,8 +138,8 @@ namespace FJM_XF.ViewModels
         {
             if (!string.IsNullOrWhiteSpace(CurrentSearch) && string.IsNullOrWhiteSpace(AddressSelected))
             {
-                SearchItems = await GoogleMapsApi.LoadPlaces(CurrentSearch);
                 ShowMap = false;
+                SearchItems = await GoogleMapsApi.LoadPlaces(CurrentSearch);
                 ShowList = true;
             }
             else

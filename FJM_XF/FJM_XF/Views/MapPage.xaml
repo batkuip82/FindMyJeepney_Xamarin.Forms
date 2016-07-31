@@ -8,36 +8,61 @@
              xmlns:behaviors="clr-namespace:Xamarin.Behaviors;assembly=Xamarin.Behaviors"
              xmlns:local="clr-namespace:FJM_XF.Behaviours;assembly=FJM_XF ">
 
-  <StackLayout Padding="5,5,5,5">
-    <Entry x:Name="SearchEntry" Placeholder="Search" Text="{Binding CurrentSearch, Mode=TwoWay}">
-      <Entry.Behaviors>
-        <local:EventToCommandBehavior EventName="TextChanged" Command="{Binding SearchChangedCommand}" />
-      </Entry.Behaviors>
-    </Entry>
-    
-      <ListView x:Name="GooglePlacesListView" ItemsSource="{Binding SearchItems}" IsVisible="{Binding ShowList}" SelectedItem="{Binding AddressSelected}">
-        <ListView.Behaviors>
-          <local:EventToCommandBehavior EventName="ItemTapped" Command="{Binding ItemTappedCommand}" />
-        </ListView.Behaviors>
-        <ListView.ItemTemplate>
-          <DataTemplate>
-            <ViewCell>
-              <ViewCell.View>
-                <StackLayout Orientation="Vertical">
-                  <Label Text="{Binding .}" />
-                </StackLayout>
-              </ViewCell.View>
-            </ViewCell>
-          </DataTemplate>
-        </ListView.ItemTemplate>
-      </ListView>
+  <AbsoluteLayout>
+		<BoxView BackgroundColor="Blue" AbsoluteLayout.LayoutBounds="25, 50, 50, 50"></BoxView>
+		<BoxView BackgroundColor="Red" AbsoluteLayout.LayoutBounds="75, 100, 30, 30"></BoxView>
+		<Label Text="Some Text" AbsoluteLayout.LayoutBounds="150, 150, Autosize, Autosize"></Label>
+	</AbsoluteLayout>
 
-    <maps:Map MapType="Street" VerticalOptions="FillAndExpand" IsVisible="{Binding ShowMap}">
-      <maps:Map.Behaviors>
-        <local:MapBehavior ItemsSource="{Binding LocationItems, Mode=TwoWay}" />
-      </maps:Map.Behaviors>
-    </maps:Map>
-  </StackLayout>
+  <!--<AbsoluteLayout BackgroundColor="White" x:Name="MainLayout">
+    <StackLayout Orientation="Vertical" BackgroundColor="White"
+                 AbsoluteLayout.LayoutBounds="1,1,1,1" AbsoluteLayout.LayoutFlags="All" VerticalOptions="FillAndExpand">
+
+      <AbsoluteLayout BackgroundColor="#CC222222" x:Name="ListExpander" VerticalOptions="FillAndExpand" AbsoluteLayout.LayoutBounds="1,1,1,1" AbsoluteLayout.LayoutFlags="All">
+        <StackLayout>
+          <StackLayout Orientation="Vertical" BackgroundColor="White"  VerticalOptions="Start"
+                       AbsoluteLayout.LayoutBounds="1,1,1,AutoSize" AbsoluteLayout.LayoutFlags="PositionProportional">
+            <Entry x:Name="SearchEntryFrom" Placeholder="Search" Text="{Binding CurrentSearch, Mode=TwoWay}" VerticalOptions="Start" >
+              <Entry.Behaviors>
+                <local:EventToCommandBehavior EventName="TextChanged" Command="{Binding SearchChangedCommand}" AbsoluteLayout.LayoutBounds="1,0,1,AutoSize" AbsoluteLayout.LayoutFlags="None"/>
+              </Entry.Behaviors>
+            </Entry>
+            <ListView Opacity="0.7" IsVisible="{Binding ShowList}" VerticalOptions="StartAndExpand" x:Name="GooglePlacesListView" ItemsSource="{Binding SearchItems}"
+                      BackgroundColor="Red" SelectedItem="{Binding AddressSelected}"
+                      AbsoluteLayout.LayoutBounds="1,0,1,AutoSize" AbsoluteLayout.LayoutFlags="All">
+              <ListView.Behaviors>
+                <local:EventToCommandBehavior EventName="ItemTapped" Command="{Binding ItemTappedCommand}" />
+              </ListView.Behaviors>
+              <ListView.ItemTemplate>
+                <DataTemplate>
+                  <ViewCell>
+                    <ViewCell.View>
+                      <StackLayout Orientation="Vertical">
+                        <Label Text="{Binding .}" />
+                      </StackLayout>
+                    </ViewCell.View>
+                  </ViewCell>
+                </DataTemplate>
+              </ListView.ItemTemplate>
+            </ListView>
+          </StackLayout>
+
+          <maps:Map MapType="Street" VerticalOptions="FillAndExpand" IsVisible="true"
+                  BackgroundColor="Blue" AbsoluteLayout.LayoutBounds="1,1,1,1" AbsoluteLayout.LayoutFlags="All">
+            <maps:Map.Behaviors>
+              <local:MapBehavior ItemsSource="{Binding LocationItems}" />
+            </maps:Map.Behaviors>
+          </maps:Map>
+        </StackLayout>
+      </AbsoluteLayout>
+    </StackLayout>
+
+  </AbsoluteLayout>-->
+
+
+
+
+
 
   <!--<StackLayout>
     <AbsoluteLayout>

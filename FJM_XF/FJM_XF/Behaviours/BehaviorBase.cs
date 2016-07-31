@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Prism.Mvvm;
+using System;
 using Xamarin.Forms;
 
 namespace FJM_XF.Behaviours
@@ -12,12 +13,12 @@ namespace FJM_XF.Behaviours
         {
             base.OnAttachedTo(bindable);
 
-            AssociatedObject = bindable;
-
             if (bindable.BindingContext != null)
                 BindingContext = bindable.BindingContext;
 
             bindable.BindingContextChanged += OnBindingContextChanged;
+
+            AssociatedObject = bindable;    
         }
 
         private void OnBindingContextChanged(object sender, EventArgs e)
