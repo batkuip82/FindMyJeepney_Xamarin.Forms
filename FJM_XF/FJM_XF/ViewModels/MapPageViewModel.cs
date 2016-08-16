@@ -90,7 +90,7 @@ namespace FJM_XF.ViewModels
 
         public MapPageViewModel()
         {
-            this.OnPropertyChanged(() => LocationItems);
+            //OnPropertyChanged(() => LocationItems);
             _locationItems = new List<LocationViewModel>();
             _locationItems.Add(setDefaultLocation());
 
@@ -114,7 +114,7 @@ namespace FJM_XF.ViewModels
             };
 
             _locationItems.Add(location);
-            OnPropertyChanged(() => this.LocationItems);
+            OnPropertyChanged(() => LocationItems);
             CurrentSearch = AddressSelected;
         }
 

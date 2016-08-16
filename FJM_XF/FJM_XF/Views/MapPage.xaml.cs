@@ -14,10 +14,5 @@ namespace FJM_XF.Views
         {
             InitializeComponent();
         }
-
-        public void OnSiteItemClick(object sender, EventArgs e)
-        {
-
-        }
     }
 }

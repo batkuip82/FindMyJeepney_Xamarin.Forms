@@ -18,14 +18,14 @@ namespace FJM_XF
     {
         protected override void OnInitialized()
         {
-            NavigationService.NavigateAsync("MainPage");
+            NavigationService.NavigateAsync("MapPage");
         }
 
         protected override void RegisterTypes()
         {
-            Container.RegisterTypeForNavigation<MainPage>();
-            Container.RegisterTypeForNavigation<LoginPage>();
-            Container.RegisterTypeForNavigation<MapPage>();
+            //Container.RegisterTypeForNavigation<MainPage>();
+            //Container.RegisterTypeForNavigation<LoginPage, LoginPageViewModel>();
+            Container.RegisterTypeForNavigation<MapPage>("MapPage");
         }
     }
 }

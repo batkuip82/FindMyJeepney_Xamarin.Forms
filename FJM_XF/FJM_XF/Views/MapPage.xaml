@@ -9,10 +9,50 @@
              xmlns:local="clr-namespace:FJM_XF.Behaviours;assembly=FJM_XF ">
 
   <AbsoluteLayout>
-		<BoxView BackgroundColor="Blue" AbsoluteLayout.LayoutBounds="25, 50, 50, 50"></BoxView>
-		<BoxView BackgroundColor="Red" AbsoluteLayout.LayoutBounds="75, 100, 30, 30"></BoxView>
-		<Label Text="Some Text" AbsoluteLayout.LayoutBounds="150, 150, Autosize, Autosize"></Label>
-	</AbsoluteLayout>
+      <maps:Map MapType="Street" VerticalOptions="FillAndExpand" IsVisible="true"
+              BackgroundColor="Blue" AbsoluteLayout.LayoutBounds="1,1,1,1" AbsoluteLayout.LayoutFlags="All">
+        <maps:Map.Behaviors>
+          <local:MapBehavior ItemsSource="{Binding LocationItems}" />
+        </maps:Map.Behaviors>
+      </maps:Map>
+
+      <!--<Label Text="DIT IS EEN TEST" VerticalOptions="CenterAndExpand" IsVisible="true"
+            BackgroundColor="Blue" AbsoluteLayout.LayoutBounds="1,1,1,1" AbsoluteLayout.LayoutFlags="All"></Label>-->
+
+      <!--<AbsoluteLayout AbsoluteLayout.LayoutBounds="1,1,1,1" AbsoluteLayout.LayoutFlags="All" x:Name="aInstructions">
+        <StackLayout Orientation="Vertical" AbsoluteLayout.LayoutBounds="1,1,1,1" AbsoluteLayout.LayoutFlags="All"
+                     HorizontalOptions="FillAndExpand">
+          <StackLayout x:Name="instructionsTitleLayout" Orientation="Horizontal"
+                       AbsoluteLayout.LayoutFlags="WidthProportional,PositionProportional"
+                       AbsoluteLayout.LayoutBounds="1,1,1,AutoSize">
+            <Entry x:Name="SearchEntryFrom" Placeholder="Search" Text="{Binding CurrentSearch, Mode=TwoWay}" VerticalOptions="Start"
+                   StackLayout.HorizontalOptions="FillAndExpand">
+              <Entry.Behaviors>
+                <local:EventToCommandBehavior EventName="TextChanged" Command="{Binding SearchChangedCommand}"/>
+              </Entry.Behaviors>
+            </Entry>
+
+          </StackLayout>
+          <ListView Opacity="0.65" IsVisible="{Binding ShowList}" VerticalOptions="Start" x:Name="GooglePlacesListView" ItemsSource="{Binding SearchItems}"
+                      SelectedItem="{Binding AddressSelected}">
+            <ListView.Behaviors>
+              <local:EventToCommandBehavior EventName="ItemTapped" Command="{Binding ItemTappedCommand}" />
+            </ListView.Behaviors>
+            <ListView.ItemTemplate>
+              <DataTemplate>
+                <ViewCell>
+                  <ViewCell.View>
+                    <StackLayout Orientation="Vertical">
+                      <Label Text="{Binding .}" />
+                    </StackLayout>
+                  </ViewCell.View>
+                </ViewCell>
+              </DataTemplate>
+            </ListView.ItemTemplate>
+          </ListView>
+        </StackLayout>
+      </AbsoluteLayout>-->
+  </AbsoluteLayout>
 
   <!--<AbsoluteLayout BackgroundColor="White" x:Name="MainLayout">
     <StackLayout Orientation="Vertical" BackgroundColor="White"
